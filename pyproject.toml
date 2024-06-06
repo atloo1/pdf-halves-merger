@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "pdf-halves-merger"
+version = "0.1.0"
+description = "2 halves of 1 page PDFs → 1 PDF"
+authors = ["atloo1"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+
+[tool.poetry.group.dev.dependencies]
+mypy = "^1.10.0"
+pre-commit = "^3.7.1"
+pytest = "^8.2.2"
+ruff = "^0.4.8"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+line-length = 120
+lint.extend-select = ["I"]  # sort imports
+
+[tool.ruff.format]
+quote-style = "single"

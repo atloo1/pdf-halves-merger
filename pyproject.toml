@@ -1,13 +1,15 @@
 [tool.poetry]
 name = "pdf-halves-merger"
 version = "0.1.0"
-description = "2 halves of 1 page PDFs → 1 PDF"
+description = "crop halves of 2 single page PDFs & concat them into 1 PDF"
 authors = ["atloo1"]
 license = "MIT"
 readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.9"
+pymupdf = "^1.24.5"
+click = "^8.1.7"
 
 [tool.poetry.group.dev.dependencies]
 mypy = "^1.10.0"

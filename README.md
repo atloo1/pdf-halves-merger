@@ -12,7 +12,7 @@ cd pdf-halves-merger/
 ## run
 ```
 poetry install --without dev
-poetry run python -m pdf_halves_merger.main
+poetry run python -m pdf_halves_merger.main --help
 ```
 
 ## develop

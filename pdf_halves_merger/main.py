@@ -47,38 +47,38 @@ def merge_pdf_halves(
     # define crop geometry
     doc_height = rect1.y1
     doc_width = rect1.x1
-    bott_half_position = fitz.Rect(0, doc_height / 2, doc_width, doc_height)
-    left_half_position = fitz.Rect(0, 0, doc_width / 2, doc_height)
-    right_half_position = fitz.Rect(doc_width / 2, 0, doc_width, doc_height)
-    top_half_position = fitz.Rect(0, 0, doc_width, doc_height / 2)
+    bott_half = fitz.Rect(0, doc_height / 2, doc_width, doc_height)
+    left_half = fitz.Rect(0, 0, doc_width / 2, doc_height)
+    right_half = fitz.Rect(doc_width / 2, 0, doc_width, doc_height)
+    top_half = fitz.Rect(0, 0, doc_width, doc_height / 2)
 
     # crop doc1
     if pdf_1_keep_half == BOTT:
-        crop1 = bott_half_position
-        position1 = top_half_position
+        crop1 = bott_half
+        position1 = top_half
     elif pdf_1_keep_half == L:
-        crop1 = left_half_position
-        position1 = left_half_position
+        crop1 = left_half
+        position1 = left_half
     elif pdf_1_keep_half == R:
-        crop1 = right_half_position
-        position1 = left_half_position
+        crop1 = right_half
+        position1 = left_half
     elif pdf_1_keep_half == TOP:
-        crop1 = top_half_position
-        position1 = top_half_position
+        crop1 = top_half
+        position1 = top_half
 
     # crop doc2
     if pdf_2_keep_half == BOTT:
-        crop2 = bott_half_position
-        position2 = bott_half_position
+        crop2 = bott_half
+        position2 = bott_half
     elif pdf_2_keep_half == L:
-        crop2 = left_half_position
-        position2 = right_half_position
+        crop2 = left_half
+        position2 = right_half
     elif pdf_2_keep_half == R:
-        crop2 = right_half_position
-        position2 = right_half_position
+        crop2 = right_half
+        position2 = right_half
     elif pdf_2_keep_half == TOP:
-        crop2 = top_half_position
-        position2 = bott_half_position
+        crop2 = top_half
+        position2 = bott_half
 
     # output
     output_doc = fitz.open()

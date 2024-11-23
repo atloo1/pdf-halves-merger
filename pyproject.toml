@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pdf-halves-merger"
-version = "1.0.1"
+version = "1.1.0"
 description = "crop halves of 2 single page PDFs & concat them into 1 PDF"
 authors = ["atloo1 <15357562+atloo1@users.noreply.github.com>"]
 license = "MIT"

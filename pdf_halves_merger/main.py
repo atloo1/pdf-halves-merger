@@ -1,3 +1,12 @@
+"""
+concatenate cropped halves of 2 single page PDFs into 1 PDF
+
+run with:
+```
+poetry run python -m pdf_halves_merger.main --help
+```
+"""
+
 from pathlib import Path
 from typing import Union
 
@@ -18,14 +27,6 @@ def merge_pdf_halves(
     pdf_1_keep_half: str = L,
     pdf_2_keep_half: str = L,
 ):
-    """
-    concatenate cropped halves of 2 single page PDFs into 1 PDF
-
-    run with:
-    ```
-    poetry run python -m pdf_halves_merger.main --help
-    ```
-    """
     # validate
     for pdf_keep_half in [pdf_1_keep_half, pdf_2_keep_half]:
         if pdf_keep_half not in ALLOWED_HALVES:
@@ -96,8 +97,8 @@ def merge_pdf_halves(
 @click.option('--in-pdf-filepath-1', type=click.Path(exists=True))
 @click.option('--in-pdf-filepath-2', type=click.Path(exists=True))
 @click.option('--out-pdf-filepath', type=click.Path(), default='merged.pdf')
-@click.option('--pdf-1-keep-half', default=L, type=str)
-@click.option('--pdf-2-keep-half', default=L, type=str)
+@click.option('--pdf-1-keep-half', default=L, type=click.Choice(ALLOWED_HALVES))
+@click.option('--pdf-2-keep-half', default=L, type=click.Choice(ALLOWED_HALVES))
 def _main(
     in_pdf_filepath_1: Union[Path, str],
     in_pdf_filepath_2: Union[Path, str],
